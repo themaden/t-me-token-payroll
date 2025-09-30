@@ -18,8 +18,8 @@ contract TimeStreamTest is Test {
 
     function test_StreamAndWithdraw() public {
         uint40 startTime = uint40(block.timestamp + 1);
-        uint40 stopTime  = uint40(block.timestamp + 1 + 10 days);
-        uint256 deposit  = 1_000 * 1e6; // 1000 mUSDC
+        uint40 stopTime = uint40(block.timestamp + 1 + 10 days);
+        uint256 deposit = 1_000 * 1e6; // 1000 mUSDC
 
         // employer'a mint
         usdc.mint(employer, deposit);

@@ -15,7 +15,7 @@ contract TimeStream is ReentrancyGuard {
         uint128 ratePerSecond; // saniyede akacak miktar
         uint40 start;
         uint40 stop;
-        uint256 withdrawn;     // çalışanca çekilmiş kısım
+        uint256 withdrawn; // çalışanca çekilmiş kısım
         bool cancelled;
     }
 
@@ -35,13 +35,10 @@ contract TimeStream is ReentrancyGuard {
     event Withdraw(uint256 indexed id, address indexed to, uint256 amount);
     event Cancelled(uint256 indexed id, uint256 paidToEmployee, uint256 refundedToEmployer);
 
-    function createStream(
-        address employee,
-        IERC20 token,
-        uint256 deposit,
-        uint40 start,
-        uint40 stop
-    ) external returns (uint256 id) {
+    function createStream(address employee, IERC20 token, uint256 deposit, uint40 start, uint40 stop)
+        external
+        returns (uint256 id)
+    {
         require(employee != address(0), "zero employee");
         require(stop > start, "bad times");
         require(deposit > 0, "no deposit");
