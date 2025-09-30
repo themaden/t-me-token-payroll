@@ -1,0 +1,2 @@
+- name: Install deps
+  run: forge install OpenZeppelin/openzeppelin-contracts --no-commit
