@@ -1,31 +1,4 @@
-name: Foundry project
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly  # veya stable
-
-      - name: Install deps
-        run: |
-          forge install foundry-rs/forge-std --no-commit
-          forge install OpenZeppelin/openzeppelin-contracts --no-commit
-
-      - name: Build
-        run: forge build --sizes
-
-      - name: Format check
-        run: forge fmt --check
-
-      - name: Run tests
-        run: forge test -vvv
+- name: Install deps
+  run: |
+    forge install foundry-rs/forge-std --no-commit
+    forge install OpenZeppelin/openzeppelin-contracts --no-commit
